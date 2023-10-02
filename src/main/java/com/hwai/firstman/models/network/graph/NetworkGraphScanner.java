@@ -1,0 +1,100 @@
+package com.hwai.firstman.models.network.graph;
+
+import com.hwai.firstman.models.network.NetworkManager;
+import com.hwai.firstman.models.network.pipe.Destination;
+import com.hwai.firstman.models.network.pipe.DestinationType;
+import com.hwai.firstman.models.network.pipe.Pipe;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+
+import java.util.*;
+
+public class NetworkGraphScanner {
+    private final Set<Pipe> foundPipes = new HashSet<>();
+    private final Set<Pipe> newPipes = new HashSet<>();
+    private final Set<Pipe> removedPipes = new HashSet<>();
+    private final Set<Destination> destinations = new HashSet<>();
+    private final Set<Pipe> currentPipes;
+    private final ResourceLocation requiredNetworkType;
+
+    private final List<NetworkGraphScannerRequest> allRequests = new ArrayList<>();
+    private final Queue<NetworkGraphScannerRequest> requests = new ArrayDeque<>();
+
+    public NetworkGraphScanner(Set<Pipe> currentPipes, ResourceLocation requiredNetworkType) {
+        this.currentPipes = currentPipes;
+        removedPipes.addAll(currentPipes);
+        this.requiredNetworkType = requiredNetworkType;
+    }
+
+    public NetworkGraphScannerResult scanAt(Level level, BlockPos pos) {
+        addRequest(new NetworkGraphScannerRequest(level, pos, null, null));
+
+        NetworkGraphScannerRequest request;
+        while ((request = requests.poll()) != null) {
+            singleScanAt(request);
+        }
+
+        return new NetworkGraphScannerResult(
+                foundPipes,
+                newPipes,
+                removedPipes,
+                destinations,
+                allRequests
+        );
+    }
+
+    private void singleScanAt(NetworkGraphScannerRequest request) {
+        Pipe pipe = NetworkManager.get(request.getLevel()).getPipe(request.getPos());
+
+        if (pipe != null) {
+            if (!requiredNetworkType.equals(pipe.getNetworkType())) {
+                return;
+            }
+
+            if (foundPipes.add(pipe)) {
+                if (!currentPipes.contains(pipe)) {
+                    newPipes.add(pipe);
+                }
+
+                removedPipes.remove(pipe);
+
+                request.setSuccessful(true);
+
+                for (Direction dir : Direction.values()) {
+                    addRequest(new NetworkGraphScannerRequest(
+                            request.getLevel(),
+                            request.getPos().relative(dir),
+                            dir,
+                            request
+                    ));
+                }
+            }
+        } else if (request.getParent() != null) { // This can NOT be called on pipe positions! (causes problems with block entities getting invalidated/validates when it shouldn't)
+            // We can NOT have the TE capability checks always run regardless of whether there was a pipe or not.
+            // Otherwise we have this loop: pipe gets placed -> network gets scanned -> TEs get checked -> it might check the TE we just placed
+            // -> the newly created TE can be created in immediate mode -> TE#validate is called again -> TE#remove is called again!
+
+            Pipe connectedPipe = NetworkManager.get(request.getLevel()).getPipe(request.getParent().getPos());
+
+            // If this destination is connected to a pipe with an attachment, then this is not a valid destination.
+            if (!connectedPipe.getAttachmentManager().hasAttachment(request.getDirection())) {
+                BlockEntity blockEntity = request.getLevel().getBlockEntity(request.getPos());
+
+                if (blockEntity != null) {
+                    blockEntity.getCapability(ForgeCapabilities.ENERGY, request.getDirection().getOpposite())
+                            .ifPresent(itemHandler -> destinations.add(new Destination(DestinationType.ENERGY, request.getPos(), request.getDirection(), connectedPipe)));
+                }
+            }
+        }
+    }
+
+    public void addRequest(NetworkGraphScannerRequest request) {
+        allRequests.add(request);
+        requests.add(request);
+    }
+
+}

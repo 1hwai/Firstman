@@ -1,0 +1,196 @@
+{
+  "variants": {
+    "down=false,east=false,north=false,south=false,up=false,west=false": {
+      "model": "firstman:block/cable/none"
+    },
+    "down=false,east=false,north=false,south=false,up=false,west=true": {
+      "model": "firstman:block/cable/w"
+    },
+    "down=false,east=false,north=false,south=false,up=true,west=false": {
+      "model": "firstman:block/cable/u"
+    },
+    "down=false,east=false,north=false,south=false,up=true,west=true": {
+      "model": "firstman:block/cable/uw"
+    },
+    "down=false,east=false,north=false,south=true,up=false,west=false": {
+      "model": "firstman:block/cable/s"
+    },
+    "down=false,east=false,north=false,south=true,up=false,west=true": {
+      "model": "firstman:block/cable/sw"
+    },
+    "down=false,east=false,north=false,south=true,up=true,west=false": {
+      "model": "firstman:block/cable/us"
+    },
+    "down=false,east=false,north=false,south=true,up=true,west=true": {
+      "model": "firstman:block/cable/usw"
+    },
+    "down=false,east=false,north=true,south=false,up=false,west=false": {
+      "model": "firstman:block/cable/n"
+    },
+    "down=false,east=false,north=true,south=false,up=false,west=true": {
+      "model": "firstman:block/cable/nw"
+    },
+    "down=false,east=false,north=true,south=false,up=true,west=false": {
+      "model": "firstman:block/cable/un"
+    },
+    "down=false,east=false,north=true,south=false,up=true,west=true": {
+      "model": "firstman:block/cable/unw"
+    },
+    "down=false,east=false,north=true,south=true,up=false,west=false": {
+      "model": "firstman:block/cable/ns"
+    },
+    "down=false,east=false,north=true,south=true,up=false,west=true": {
+      "model": "firstman:block/cable/nsw"
+    },
+    "down=false,east=false,north=true,south=true,up=true,west=false": {
+      "model": "firstman:block/cable/uns"
+    },
+    "down=false,east=false,north=true,south=true,up=true,west=true": {
+      "model": "firstman:block/cable/unsw"
+    },
+    "down=false,east=true,north=false,south=false,up=false,west=false": {
+      "model": "firstman:block/cable/e"
+    },
+    "down=false,east=true,north=false,south=false,up=false,west=true": {
+      "model": "firstman:block/cable/ew"
+    },
+    "down=false,east=true,north=false,south=false,up=true,west=false": {
+      "model": "firstman:block/cable/ue"
+    },
+    "down=false,east=true,north=false,south=false,up=true,west=true": {
+      "model": "firstman:block/cable/uew"
+    },
+    "down=false,east=true,north=false,south=true,up=false,west=false": {
+      "model": "firstman:block/cable/se"
+    },
+    "down=false,east=true,north=false,south=true,up=false,west=true": {
+      "model": "firstman:block/cable/sew"
+    },
+    "down=false,east=true,north=false,south=true,up=true,west=false": {
+      "model": "firstman:block/cable/use"
+    },
+    "down=false,east=true,north=false,south=true,up=true,west=true": {
+      "model": "firstman:block/cable/usew"
+    },
+    "down=false,east=true,north=true,south=false,up=false,west=false": {
+      "model": "firstman:block/cable/ne"
+    },
+    "down=false,east=true,north=true,south=false,up=false,west=true": {
+      "model": "firstman:block/cable/new"
+    },
+    "down=false,east=true,north=true,south=false,up=true,west=false": {
+      "model": "firstman:block/cable/une"
+    },
+    "down=false,east=true,north=true,south=false,up=true,west=true": {
+      "model": "firstman:block/cable/unew"
+    },
+    "down=false,east=true,north=true,south=true,up=false,west=false": {
+      "model": "firstman:block/cable/nse"
+    },
+    "down=false,east=true,north=true,south=true,up=false,west=true": {
+      "model": "firstman:block/cable/nsew"
+    },
+    "down=false,east=true,north=true,south=true,up=true,west=false": {
+      "model": "firstman:block/cable/unse"
+    },
+    "down=false,east=true,north=true,south=true,up=true,west=true": {
+      "model": "firstman:block/cable/unsew"
+    },
+    "down=true,east=false,north=false,south=false,up=false,west=false": {
+      "model": "firstman:block/cable/d"
+    },
+    "down=true,east=false,north=false,south=false,up=false,west=true": {
+      "model": "firstman:block/cable/dw"
+    },
+    "down=true,east=false,north=false,south=false,up=true,west=false": {
+      "model": "firstman:block/cable/ud"
+    },
+    "down=true,east=false,north=false,south=false,up=true,west=true": {
+      "model": "firstman:block/cable/udw"
+    },
+    "down=true,east=false,north=false,south=true,up=false,west=false": {
+      "model": "firstman:block/cable/ds"
+    },
+    "down=true,east=false,north=false,south=true,up=false,west=true": {
+      "model": "firstman:block/cable/dsw"
+    },
+    "down=true,east=false,north=false,south=true,up=true,west=false": {
+      "model": "firstman:block/cable/uds"
+    },
+    "down=true,east=false,north=false,south=true,up=true,west=true": {
+      "model": "firstman:block/cable/udsw"
+    },
+    "down=true,east=false,north=true,south=false,up=false,west=false": {
+      "model": "firstman:block/cable/dn"
+    },
+    "down=true,east=false,north=true,south=false,up=false,west=true": {
+      "model": "firstman:block/cable/dnw"
+    },
+    "down=true,east=false,north=true,south=false,up=true,west=false": {
+      "model": "firstman:block/cable/udn"
+    },
+    "down=true,east=false,north=true,south=false,up=true,west=true": {
+      "model": "firstman:block/cable/udnw"
+    },
+    "down=true,east=false,north=true,south=true,up=false,west=false": {
+      "model": "firstman:block/cable/dns"
+    },
+    "down=true,east=false,north=true,south=true,up=false,west=true": {
+      "model": "firstman:block/cable/dnsw"
+    },
+    "down=true,east=false,north=true,south=true,up=true,west=false": {
+      "model": "firstman:block/cable/udns"
+    },
+    "down=true,east=false,north=true,south=true,up=true,west=true": {
+      "model": "firstman:block/cable/udnsw"
+    },
+    "down=true,east=true,north=false,south=false,up=false,west=false": {
+      "model": "firstman:block/cable/de"
+    },
+    "down=true,east=true,north=false,south=false,up=false,west=true": {
+      "model": "firstman:block/cable/dew"
+    },
+    "down=true,east=true,north=false,south=false,up=true,west=false": {
+      "model": "firstman:block/cable/ude"
+    },
+    "down=true,east=true,north=false,south=false,up=true,west=true": {
+      "model": "firstman:block/cable/udew"
+    },
+    "down=true,east=true,north=false,south=true,up=false,west=false": {
+      "model": "firstman:block/cable/dse"
+    },
+    "down=true,east=true,north=false,south=true,up=false,west=true": {
+      "model": "firstman:block/cable/dsew"
+    },
+    "down=true,east=true,north=false,south=true,up=true,west=false": {
+      "model": "firstman:block/cable/udse"
+    },
+    "down=true,east=true,north=false,south=true,up=true,west=true": {
+      "model": "firstman:block/cable/udsew"
+    },
+    "down=true,east=true,north=true,south=false,up=false,west=false": {
+      "model": "firstman:block/cable/dne"
+    },
+    "down=true,east=true,north=true,south=false,up=false,west=true": {
+      "model": "firstman:block/cable/dnew"
+    },
+    "down=true,east=true,north=true,south=false,up=true,west=false": {
+      "model": "firstman:block/cable/udne"
+    },
+    "down=true,east=true,north=true,south=false,up=true,west=true": {
+      "model": "firstman:block/cable/udnew"
+    },
+    "down=true,east=true,north=true,south=true,up=false,west=false": {
+      "model": "firstman:block/cable/dnse"
+    },
+    "down=true,east=true,north=true,south=true,up=false,west=true": {
+      "model": "firstman:block/cable/dnsew"
+    },
+    "down=true,east=true,north=true,south=true,up=true,west=false": {
+      "model": "firstman:block/cable/udnse"
+    },
+    "down=true,east=true,north=true,south=true,up=true,west=true": {
+      "model": "firstman:block/cable/udnsew"
+    }
+  }
+}
