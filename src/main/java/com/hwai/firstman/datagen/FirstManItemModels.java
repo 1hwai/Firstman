@@ -30,8 +30,4 @@ public class FirstManItemModels extends ItemModelProvider {
         withExistingParent(block.getId().getPath(), modLoc("block/" + id));
     }
 
-    @Override
-    public String getName() {
-        return "FirstMan Tags";
-    }
 }

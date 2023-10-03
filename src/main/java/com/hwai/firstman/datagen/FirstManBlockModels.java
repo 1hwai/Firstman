@@ -16,8 +16,4 @@ public class FirstManBlockModels extends BlockModelProvider {
 
     }
 
-    @Override
-    public String getName() {
-        return "FirstMan Tags";
-    }
 }
