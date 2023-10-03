@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "idle=true": {
+      "model": "firstman:block/solar_panel_slope_block_idle"
+    },
+    "idle=false": {
+      "model": "firstman:block/solar_panel_slope_block"
+    }
+  }
+}

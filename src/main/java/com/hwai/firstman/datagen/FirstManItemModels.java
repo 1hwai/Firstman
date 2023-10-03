@@ -17,15 +17,14 @@ public class FirstManItemModels extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        System.out.println("fsdajfklajkldwfjdklasfjdksfjdksfjdsklfjdasklfjadsklfjdkaslfjdkslfjadsfjadkslfjakslfjadklsj");
-        registerItemModels(ItemInit.SOLAR_PANEL, "solar_panel");
+        registerSimpleItemModels(ItemInit.SOLAR_PANEL, "solar_panel");
+        registerSimpleItemModels(ItemInit.WRENCH, "wrench");
     }
 
-    private void registerItemModels(RegistryObject<Item> item, String id) {
-        System.out.println("sdfafkasjdkakasfjakjsfkafjdj");
-        System.out.println("RLoc" + item.getId());
+    private void registerSimpleItemModels(RegistryObject<Item> item, String id) {
         singleTexture(item.getId().getPath(), mcLoc("item/generated"), "layer0", modLoc("items/" + id));
     }
+
 
     private void registerBlockModels(RegistryObject<Block> block, String id) {
         withExistingParent(block.getId().getPath(), modLoc("block/" + id));
@@ -33,6 +32,6 @@ public class FirstManItemModels extends ItemModelProvider {
 
     @Override
     public String getName() {
-        return "SpaceSim Tags";
+        return "FirstMan Tags";
     }
 }
